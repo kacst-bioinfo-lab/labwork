@@ -1,0 +1,12 @@
+Fibonacci<-function(x=x) {
+  for(i in seq(along=(x))) {
+    
+   if (x[i] <= 2) {
+     x[i]=1
+   }
+    else {
+     x[i]=((x[i]-1)+(x[i]-2))
+    }
+  }
+  return(x)
+  }
