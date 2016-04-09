@@ -6,6 +6,7 @@ This function will compute the Fibonacci sequence  by applying Fibonacci sequenc
 ######The following code create the Fibonacci rules or conditions that we need to apply on the numerical variable x:
 
 `for(i in seq(along=(x))) {`
+
    `if (x[i] == 0){`
    
    `x[i]== 0`
