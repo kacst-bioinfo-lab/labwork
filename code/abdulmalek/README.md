@@ -1,7 +1,7 @@
 #Fibonacci_Code
 This function will compute the Fibonacci Code for any given namber by applying Fibonacci code conditions. First, we need to define the function name and arguments required.
 
-`Fibonacci<-function(x=x) {}`
+`Fibonacci<-function(x){}`
 
 ######The following code create the Fibonacci rules or conditions that we need to apply on the numerical variable x:
 
