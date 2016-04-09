@@ -1,5 +1,5 @@
 #Fibonacci_Code
-This function will compute the Fibonacci Code for any given namber by applying Fibonacci code conditions. First, we need to define the function name and arguments required.
+This function will compute the Fibonacci sequence for by applying Fibonacci sequence Mathes. First, we need to define the function name and arguments required.
 
 `Fibonacci<-function(x){}`
 
