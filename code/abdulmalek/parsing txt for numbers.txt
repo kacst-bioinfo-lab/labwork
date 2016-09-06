@@ -1,0 +1,5 @@
+# To select the numbers only from one file and write them into another file
+[atalgarni@AbuMohammad ~]$ grep -E '[0-9]{1,}' LOG.txt > log_int.txt
+# To select specific columns from one file and rewrite the table into another file
+[atalgarni@AbuMohammad ~]$ awk '{print $2,$3}' log_int.txt > log1.txt
+
