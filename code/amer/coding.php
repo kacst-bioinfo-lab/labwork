@@ -29,7 +29,7 @@ echo "New chromInfo file was successfully created <br>";
 $dm3_exons=file("C:/xampp/htdocs/labwork/data/shared/dm3_exons.txt");
 //$new_exons=file("C:/xampp/htdocs/labwork/data/shared/dm3_exons_new.txt");
 $chrom_new=file("C:/xampp/htdocs/labwork/data/shared/chromInfo_new.txt");
-$new_exons= fopen("C:/xampp/htdocs/labwork/data/shared/dm3_exons_new.txt", 'a') or exit("Unable to open file!");
+$coding= fopen("C:/xampp/htdocs/labwork/data/shared/coding.txt", 'a') or exit("Unable to open file!");
   
   
   
@@ -67,7 +67,7 @@ $new_exons= fopen("C:/xampp/htdocs/labwork/data/shared/dm3_exons_new.txt", 'a') 
 					
 					 $new_exons_line= $split_string_chrom[0]."\t".$new_exons_start."\t".$new_exons_end."\t".$exons_length."\n";
 					
-				    fwrite($new_exons, $new_exons_line);
+				    fwrite($coding, $new_exons_line);
 				}
 		 
 		}
@@ -76,7 +76,7 @@ $new_exons= fopen("C:/xampp/htdocs/labwork/data/shared/dm3_exons_new.txt", 'a') 
   }
  
  echo "New exons file was successfully created <br>";
- fclose($new_exons);
+ fclose($coding);
 ?>
 
 
