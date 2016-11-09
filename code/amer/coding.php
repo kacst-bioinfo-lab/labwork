@@ -1,7 +1,7 @@
 <?php
 
-$file=fopen("C:/xampp/htdocs/labwork/data/shared/chromInfo.txt","r") or exit("Unable to open file!");
-$handle = fopen("C:/xampp/htdocs/labwork/data/shared/chromInfo_new.txt", 'a') or exit("Unable to open file!");
+$file=fopen("C:/xampp/htdocs/labwork/data/amer/chromInfo.txt","r") or exit("Unable to open file!");
+$handle = fopen("C:/xampp/htdocs/labwork/data/amer/chromInfo_new.txt", 'a') or exit("Unable to open file!");
 
 
 
@@ -26,10 +26,10 @@ echo "New chromInfo file was successfully created <br>";
 
   
 
-$dm3_exons=file("C:/xampp/htdocs/labwork/data/shared/dm3_exons.txt");
-//$new_exons=file("C:/xampp/htdocs/labwork/data/shared/dm3_exons_new.txt");
-$chrom_new=file("C:/xampp/htdocs/labwork/data/shared/chromInfo_new.txt");
-$coding= fopen("C:/xampp/htdocs/labwork/data/shared/coding.txt", 'a') or exit("Unable to open file!");
+$dm3_exons=file("C:/xampp/htdocs/labwork/data/amer/dm3_exons.txt");
+//$new_exons=file("C:/xampp/htdocs/labwork/data/amer/dm3_exons_new.txt");
+$chrom_new=file("C:/xampp/htdocs/labwork/data/amer/chromInfo_new.txt");
+$coding= fopen("C:/xampp/htdocs/labwork/data/amer/coding.txt", 'a') or exit("Unable to open file!");
   
   
   
