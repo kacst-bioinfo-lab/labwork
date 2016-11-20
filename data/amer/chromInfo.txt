@@ -1,0 +1,15 @@
+chr2L	23011544	/gbdb/dm3/dm3.2bit
+chr2LHet	368872	/gbdb/dm3/dm3.2bit
+chr2R	21146708	/gbdb/dm3/dm3.2bit
+chr2RHet	3288761	/gbdb/dm3/dm3.2bit
+chr3L	24543557	/gbdb/dm3/dm3.2bit
+chr3LHet	2555491	/gbdb/dm3/dm3.2bit
+chr3R	27905053	/gbdb/dm3/dm3.2bit
+chr3RHet	2517507	/gbdb/dm3/dm3.2bit
+chr4	1351857	/gbdb/dm3/dm3.2bit
+chrU	10049037	/gbdb/dm3/dm3.2bit
+chrUextra	29004656	/gbdb/dm3/dm3.2bit
+chrX	22422827	/gbdb/dm3/dm3.2bit
+chrXHet	204112	/gbdb/dm3/dm3.2bit
+chrYHet	347038	/gbdb/dm3/dm3.2bit
+chrM	19517	/gbdb/dm3/dm3.2bit
