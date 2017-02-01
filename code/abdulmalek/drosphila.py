@@ -6,7 +6,7 @@ InputName= 'chromInfo.txt'
 Input = open(InputName,'r')
 
 LineNumber = 0
-OutFileName =  'InputName.bed'
+OutFileName =  'ChromInfo.bed'
 
 OutFile = open(OutFileName, 'w')
 
