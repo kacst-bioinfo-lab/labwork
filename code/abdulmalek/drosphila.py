@@ -1,17 +1,13 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+from sys import argv
 
-InputName= 'chromInfo.txt'
-
-Input = open(InputName,'r')
+InFile = open (argv[1], 'r')
+OutFile = open(argv[2], 'w')
 
 LineNumber = 0
-OutFileName =  'ChromInfo.bed'
-
-OutFile = open(OutFileName, 'w')
-
-
-for line in Input:
+for line in InFile:a
       Line = line.strip('\n')
       
       column = line.split('\t')
@@ -23,5 +19,5 @@ for line in Input:
       
       LineNumber = LineNumber + 1
       
-Input.close()
+InFile.close()
 OutFile.close
