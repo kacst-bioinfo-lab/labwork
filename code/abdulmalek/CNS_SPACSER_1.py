@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 def group(lst, n):# This is a generator function to read N items of a batch size n:
   for i in range(0, len(lst), n):
