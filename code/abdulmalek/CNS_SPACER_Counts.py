@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 '''This is a program to Parse the Concerved elements [CNS] & Spacer of each sequence... where the CNS are represented by the lowercase letter,,, and the Spacers are represented by the uppercase letters. Here the sequences are grouped together and parsed for further computing'''
 
