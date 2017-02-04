@@ -7,7 +7,7 @@ InFile = open (argv[1], 'r')
 OutFile = open(argv[2], 'w')
 
 LineNumber = 0
-for line in InFile:a
+for line in InFile:
       Line = line.strip('\n')
       
       column = line.split('\t')
