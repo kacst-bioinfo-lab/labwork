@@ -12,4 +12,4 @@ chrUextra	29004656	/gbdb/dm3/dm3.2bit
 chrX	22422827	/gbdb/dm3/dm3.2bit
 chrXHet	204112	/gbdb/dm3/dm3.2bit
 chrYHet	347038	/gbdb/dm3/dm3.2bit
-chrM	19517	/gbdb/dm3/dm3.2bit
+chrM	19517	/gbdb/dm3/dm3.2bi
