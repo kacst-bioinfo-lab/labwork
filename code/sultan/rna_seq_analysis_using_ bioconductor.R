@@ -22,7 +22,7 @@ coldata <- colData(se)
 ## To now construct the DESeqDataSet object from the matrix of counts and the sample information table:
 (ddsMat <- DESeqDataSetFromMatrix(countData = countdata, colData = coldata, design = ~ cell + dex))
 ## Pre-filtering the dataset
-## Checking the number of rows (genes).
+## Checking the number of rows (geness).
 (nrow(dds))
 ## I will remove rows of DESeqDataSet that have no counts or only a single count across all samples:
 ((dds <- dds[rowSums(counts(dds)) > 1, ]))
