@@ -22,7 +22,7 @@ coldata <- colData(se)
 ## To now construct the DESeqDataSet object from the matrix of counts and the sample information table:
 (ddsMat <- DESeqDataSetFromMatrix(countData = countdata, colData = coldata, design = ~ cell + dex))
 ## Pre-filtering the dataset
-## Checking the number of rows (geness).
+## Checking the number of rows (genes).
 (nrow(dds))
 ## I will remove rows of DESeqDataSet that have no counts or only a single count across all samples:
 ((dds <- dds[rowSums(counts(dds)) > 1, ]))
@@ -56,5 +56,23 @@ library("PoiClaClu")
 (rownames(samplePoisDisMatrix) <- paste(rld$dex, rld$cell, sep="-"))
 (colnames(samplePoisDisMatrix) <- NULL)
 (pheatmap (samplePoisDisMatrix, clustering_distance_rows = poisd$dd, clustering_distance_cols = poisd$dd, col= colors))
-## Princioal Components Analysis (PCA) plot.
+## Princioal Components Analysis (PCA) plot.Sample to Sample distance (2D plane)
 (plotPCA(rld, intgroup= c("dex","cell")))
+(data <- plotPCA(rld, intgroup=c("dex", "cell"), returnData=T))
+(percentVar <- round(100 * attr(data, "percentVar")))
+library("ggplot2")
+(ggplot(data, aes(PC1, PC2, color=dex, shape=cell)) + geom_point(size=3) + xlab(paste0("PC1:", percentVar[1], "% variance" )) + ylab(paste0 ("PC2:", percentVar[2], "% variance")))
+## Runing the differential expression pipeline
+(dds <- DESeq(dds))
+(res <- results(dds))
+(mcols(res, use.names = T))
+(summary(res))
+(res.05 <- results(dds, alpha = .05))
+(table(res.05$padj < .05))
+(topGene <- rownames(res)[which.min(res$padj)])
+(plotCounts(dds, gene=topGene, intgroup = c("dex")))
+(data <- plotCounts(dds, gene=topGene, intgroup=c("dex","cell"), returnData=TRUE))
+(ggplot(data, aes(x=dex, y=count, color=cell)) + scale_y_log10() + geom_point(position=position_jitter(width=.1,height=0), size=3))
+(ggplot(data, aes(x=dex, y=count,  fill=dex)) + scale_y_log10() + geom_dotplot(binaxis="y", stackdir="center"))
+(ggplot(data, aes(x=dex, y=count, color=cell, group=cell)) + scale_y_log10() + geom_point(size=3) + geom_line())
+(plotMA(res, ylim=c(-5,5)))
