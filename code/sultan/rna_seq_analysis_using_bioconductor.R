@@ -147,6 +147,7 @@ url <-  finish(htmlRep)
 browseURL(url)
 (resGR <- results(dds, lfcThreshold=1, format="GRanges"))
 resGR$symbol <- mapIds(org.Hs.eg.db, names(resGR), "SYMBOL", "ENSEMBL")
+## plotting flod change in genomic space.
 library("Gviz")
 window <- resGR[topGene] + 1e6
 strand(window) <- "*"
@@ -160,3 +161,52 @@ a <- AnnotationTrack(resGRsub, name="gene ranges", feature=sig)
 d <- DataTrack(resGRsub, data="log2FoldChange", baseline=0,
                 type="h", name="log2 fold change", strand="+") 
 plotTracks(list(g,d,a), groupAnnotation="group", notsig="grey", sig="hotpink")
+dev.copy(pdf,file="/Users/sultanalharbi/OneDrive/labwork/data/sultan/flod_changein_genomicspace.pdf")
+dev.off()
+library("sva")
+dat <- counts(dds, normalized=TRUE)
+idx <- rowMeans(dat) > 1
+dat <- dat[idx,]
+mod <- model.matrix(~ dex, colData(dds))
+mod0 <- model.matrix(~ 1, colData(dds))
+svseq <- svaseq(dat, mod, mod0, n.sv=2)
+par(mfrow=c(2,1),mar=c(3,5,3,1))
+stripchart(svseq$sv[,1] ~ dds$cell,vertical=TRUE,main="SV1") 
+abline(h=0)
+stripchart(svseq$sv[,2] ~ dds$cell,vertical=TRUE,main="SV2") 
+abline(h=0)
+ddssva <- dds
+ddssva$SV1 <- svseq$sv[,1]
+ddssva$SV2 <- svseq$sv[,2]
+design(ddssva) <- ~ SV1 + SV2 + dex
+ddssva <- DESeq(ddssva)
+## Time Coursce Experiments
+library("fission")
+data("fission")
+ddsTC <- DESeqDataSet(fission, ~ strain + minute + strain:minute)
+ddsTC <- DESeq(ddsTC, test="LRT", reduced = ~ strain + minute) 
+resTC <- results(ddsTC)
+resTC$symbol <- mcols(ddsTC)$symbol 
+head(resTC[order(resTC$padj),],4)
+data <- plotCounts(ddsTC, which.min(resTC$padj), 
+                   intgroup=c("minute","strain"), returnData=TRUE)
+ggplot(data, aes(x=minute, y=count, color=strain, group=strain)) + 
+  geom_point() + stat_smooth(se=FALSE,method="loess") + scale_y_log10()
+dev.copy(pdf,file="/Users/sultanalharbi/OneDrive/labwork/data/sultan/condition_specificOvertime.pdf")
+dev.off()
+resultsNames(ddsTC)
+res30 <- results(ddsTC, name="strainmut.minute30", test="Wald") 
+res30[which.min(resTC$padj),]
+betas <- coef(ddsTC)
+colnames(betas)
+library("pheatmap")
+topGenes <- head(order(resTC$padj),20)
+mat <- betas[topGenes, -c(1,2)]
+thr <- 3
+mat[mat < -thr] <- -thr
+mat[mat > thr] <- thr
+pheatmap(mat, breaks=seq(from=-thr, to=thr, length=101),
+         cluster_col=FALSE)
+dev.copy(pdf,file="/Users/sultanalharbi/OneDrive/labwork/data/sultan/heatmap.pdf")
+dev.off()
+sessionInfo()
