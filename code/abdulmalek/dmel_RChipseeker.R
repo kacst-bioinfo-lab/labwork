@@ -6,8 +6,7 @@ require(clusterProfiler)
 require(ggplot2)
 require(UpSetR)
 require(org.Dm.eg.db)
-require(reactome.db)
-require(ReactomePA)
+
 #######
 #######
 txdb <- TxDb.Dmelanogaster.UCSC.dm3.ensGene
