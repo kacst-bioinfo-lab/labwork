@@ -1,6 +1,8 @@
 # Chip Seq Data Analysis Tutorial
 
+**For the Data set you can download it from**
 
+http://www.starklab.org/data/bardet_natprotoc_2011/
 
  CRITICAL NOTE *We provide all code as Unix shell instructions that generally run on Unix/Linux distributions, allow line-by-line processing of large files and are typically very robust*
 
