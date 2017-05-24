@@ -1,3 +1,7 @@
+# Chip Seq Data Analysis Tutorial
+
+
+
  CRITICAL NOTE *We provide all code as Unix shell instructions that generally run on Unix/Linux distributions, allow line-by-line processing of large files and are typically very robust*
 
 **You can download bash file from https://github.com/kacst-bioinfo-lab/labwork/blob/master/code/abdulmalek/ChipBash.sh
