@@ -1,1 +1,1 @@
-# shared documents
+# shared documents for all lab's members
